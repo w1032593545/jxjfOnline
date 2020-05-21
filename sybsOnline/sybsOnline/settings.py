@@ -11,10 +11,11 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import sys
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+sys.path.insert(0,os.path.join(BASE_DIR,'apps'))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
@@ -24,7 +25,7 @@ SECRET_KEY = '_t_khs6oettfj2tujj@w)hh2_l$_wn)m!a(77npjaau$e_-l46'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
@@ -38,11 +39,14 @@ INSTALLED_APPS = [
     'xadmin',
     'crispy_forms',
     'reversion',
-    'users.apps.UsersConfig',
-    'course',
-    'operation',
-    'organization'
+    'apps.users.apps.UsersConfig',
+    'apps.course.apps.CourseConfig',
+    'apps.operation.apps.OperationConfig',
+    'apps.organization.apps.OrganizationConfig'
 ]
+
+# 使用自己写的UserProfile
+AUTH_USER_MODEL = 'users.UserProfile'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
