@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'apps.users.apps.UsersConfig',
     'apps.course.apps.CourseConfig',
     'apps.operation.apps.OperationConfig',
-    'apps.organization.apps.OrganizationConfig'
+    'apps.organization.apps.OrganizationConfig',
+    'rest_framework'
 ]
 
 # 使用自己写的UserProfile
